@@ -1,0 +1,66 @@
+body{
+    background-image: url('/images/gamebg.png');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.header {
+    transform: skew(-20deg);
+}
+
+.p-tcolor {
+    color: #5a89ed;
+}
+
+.s-tcolor {
+    color: white;
+}
+
+.p-bcolor {
+    background-color: #5a89ed;
+}
+
+.s-bcolor {
+    background-color: white;
+}
+
+.header ul .link {
+    transform: skew(20deg);
+}
+
+.link {
+    font-weight: 500;
+    padding: 5px;
+}
+
+.link:hover {
+    background-color: #dc3545;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.center-link {
+    background-color: #dc3545;
+    padding: 30px 70px 30px 70px;
+}
+
+.center-link label {
+    transform: skew(20deg);
+}
+
+.content {
+    padding-left: 119px;
+    padding-right: 119px;
+}
+
+.status {
+    background-color: #2fed36;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.input-text {
+    height: 20px;
+    width: 200px;
+    border-radius: 0px;
+    font-size: 13px;
+}
