@@ -2,9 +2,9 @@ $(document).ready(function() {
     $('#captcha').click(function() {
         $.ajax({
             type: 'GET',
-            url: 'reload-captcha',
+            url: 'reloadcaptcha',
             success: function(data) {
-                $(".captcha span").html(data.captcha);
+                $(".captcha").html(data.captcha);
             }
         });
     });

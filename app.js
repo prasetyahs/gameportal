@@ -3,9 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
-
+var csrf = require('csurf');
+var bodyParser = require('body-parser');
 var webRouter = require('./routes/web');
+
+
 
 var app = express();
 
@@ -15,10 +17,11 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(csrf({ cookie: true }))
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', webRouter);
 
 // catch 404 and forward to error handler
