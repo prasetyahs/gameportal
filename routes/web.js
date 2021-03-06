@@ -1,28 +1,16 @@
 let express = require('express');
 let router = express.Router();
-let svgCaptcha = require('svg-captcha');
 let usersController = require('../controller/register.controller');
-router.get('/', (req, res) => {
-    res.render('index', { csrfToken: req.csrfToken() })
-})
+let indexController = require('../controller/index.controller');
+router.get('/', (req, res) => indexController.show(res, req));
 router.get('/index', (req, res) => res.render('index', { csrfToken: req.csrfToken() }));
 
-//register
-router.get('/register', (req, res) => {
-    let captcha = svgCaptcha.create();
-    usersController.show(res, { csrfToken: req.csrfToken(), "captcha": captcha.data, status: false, err: '' });
-});
+router.get('/register', (req, res) => usersController.show(res, req));
 router.post('/usersregister', (req, res) => usersController.store(req, res, req.body));
 
+router.get('/reloadcaptcha', (req, res) => usersController.reloadCaptcha(res, req));
 
-//get request
-router.get('/forgetpassword', (req, res) => res.send("forget"));
-router.get('/rules', (req, res) => res.render('rule', { csrfToken: req.csrfToken() }));
-router.get('/faq', (req, res) => res.render('faq', { csrfToken: req.csrfToken() }))
-router.get('/donate', (req, res) => res.render('donate', { csrfToken: req.csrfToken() }));
-router.get('/reloadcaptcha', (req, res) => res.send({ "captcha": svgCaptcha.create().data }));
 router.get('*', (req, res) => res.end("ERROR NOT FOUND"));
-//post request
 router.post('*', (req, res) => res.end("ERROR NOT FOUND"));
 
 module.exports = router;

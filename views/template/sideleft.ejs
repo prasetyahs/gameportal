@@ -1,15 +1,6 @@
 <div class="d-flex flex-sm-column">
-    <div class="card rounded-0 border border-primary" id="card-login">
-        <div class="card-body" style="width:18rem;">
-            <!-- @if($message = Session::get('message'))
-        <div class="alert alert-success" role="alert">
-            {{$message}}
-        </div>
-        @endif @if($failed = Session::get('failed'))
-        <div class="alert alert-danger" role="alert">
-            {{$failed}}
-        </div>
-        @endif -->
+    <div class="bg-white border border-primary rounded" id="card-login">
+        <div class="card-body" style="width: 20vw;">
             <form action="{{ route('login') }}" method="post">
                 <input type="hidden" name="_csrf"  value="<%= csrfToken %>">
                 <div class="form-group">
@@ -30,6 +21,4 @@
             </div>
         </div>
     </div>
-
-
 </div>

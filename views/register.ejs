@@ -27,13 +27,13 @@
                                 </div>
                                 @endif -->
                                 
-                                <% if(status && status !=null){ %>
+                                <!-- <% if(status && status !=null){ %>
                                     <div class="alert alert-info" role="alert">
                                 <% }else if(!status && status !=null){ %>
                                     <div class="alert alert-danger" role="alert">
                                 <% } %>
                                     <%= err %> 
-                                    </div>
+                                    </div> -->
                                 <form action="/usersregister" method="post">
                                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                                     <div class="d-flex flex-sm-row flex-wrap justify-content-between">
@@ -74,7 +74,7 @@
                                     </div>
                                     <div class="d-flex flex-sm-row flex-wrap justify-content-between">
                                         <label for="pin">Pin Code</label>
-                                        <input type="password" class="form-control input-text" name="pin_code"
+                                        <input type="number" class="form-control input-text" name="pin_code"
                                             id="pin_code" required>
                                     </div>
                                     <div class="d-flex flex-sm-row flex-wrap justify-content-between mb-3">
